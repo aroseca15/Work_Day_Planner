@@ -22,29 +22,59 @@ console.log(today);
 </section>
 */
 
-let container = $('.container')
+let container = $('.container');
 let time;
-time = '5:00am' 
-let newRow = $('<section>').addClass('row');
-let hourCell = $('<div>').addClass('col-md-4');
-hourCell.text(time);
-newRow.append(hourCell);
+// Make repeatable   
 
-let inputCell = $('<div>').addClass('col-md-5');
-let input = $('<input type = "text">');
-input.addClass('input');
-input.attr('id', time);
-inputCell.append(input);
-newRow.append(inputCell);
+let times = ['5:00am', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm','3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', '9:00pm'];
+time;
+let index = 0;
+while (index < times.length) {
 
-let saveBtnCell = $('<div>').addClass('col-md-3');
-let saveBtn = $('<button>').addClass('save-btn');
-saveBtn.attr('date-time', time);
-saveBtn.text('save');
-saveBtnCell.append(saveBtn);
-newRow.append(saveBtnCell);
-container.append(newRow);
+    let time = times[index];
+    let newRow = $('<section>').addClass('row');
+    let hourCell = $('<div>').addClass('col-md-4');
+    hourCell.text(time);
+    newRow.append(hourCell);
 
+    let inputCell = $('<div>').addClass('col-md-5');
+    let input = $('<input type = "text">');
+    input.addClass('input');
+    input.attr('id', time);
+    inputCell.append(input);
+    newRow.append(inputCell);
+    let saveBtnCell = $('<div>').addClass('col-md-3');
+    let saveBtn = $('<button>').addClass('save-btn');
+    saveBtn.attr('date-time', time);
+    saveBtn.text('save');
+    saveBtnCell.append(saveBtn);
+    newRow.append(saveBtnCell);
+    container.append(newRow);
+    index++;
+}
+
+
+
+
+// let newRow = $('<section>').addClass('row');
+// let hourCell = $('<div>').addClass('col-md-4');
+// hourCell.text(time);
+// newRow.append(hourCell);
+
+// let inputCell = $('<div>').addClass('col-md-5');
+// let input = $('<input type = "text">');
+// input.addClass('input');
+// input.attr('id', time);
+// inputCell.append(input);
+// newRow.append(inputCell);
+
+// let saveBtnCell = $('<div>').addClass('col-md-3');
+// let saveBtn = $('<button>').addClass('save-btn');
+// saveBtn.attr('date-time', time);
+// saveBtn.text('save');
+// saveBtnCell.append(saveBtn);
+// newRow.append(saveBtnCell);
+// container.append(newRow);
 
 
 
