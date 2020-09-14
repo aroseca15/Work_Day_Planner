@@ -1,10 +1,16 @@
-let currentDay;
+// let currentDay;
 
-const today = Date.parse(new Date());
-currentDay = today;
-console.log(today);
+// const today = Date.parse(new Date());
+// currentDay = today;
+// console.log(today);
 
+const todaysDate = new Date();
+//console.log(todaysDate.getMonth()+" "+todaysDate.getDate()+ " "+todaysDate.getFullYear())
+console.log(todaysDate.toLocaleString('default', {month:'long'})+" "+todaysDate.getDate()+","+todaysDate.getUTCFullYear())
+// console.log(todaysDate.toLocaleString('default', {month:'long'}))
 
+$('#currentDay').text(todaysDate.toLocaleString('default', {month:'long'})+" "+todaysDate.getDate()+", "+todaysDate.getUTCFullYear());
+$('#currentTime').text(todaysDate.toLocaleString('en-US', {hour: 'numeric',minute:'numeric', hour12: true}))
 
 
 
@@ -27,7 +33,7 @@ let time;
 // Make repeatable   
 
 let times = ['5:00am', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm','3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', '9:00pm'];
-time;
+// let time;
 let index = 0;
 while (index < times.length) {
 
@@ -52,6 +58,8 @@ while (index < times.length) {
     container.append(newRow);
     index++;
 }
+
+$('.col-md-4').css('background-color: #ffffff', 'color: #000000', 'border-top: 1px dashed #000000');
 
 
 
