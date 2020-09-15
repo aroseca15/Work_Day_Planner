@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -9,7 +10,7 @@ textarea {
   border: none;
   resize: none;
   color: #000000;
-  border-left: 1px solid black;
+  border: 1px solid black;
   padding: 10px;
 }
 
@@ -37,7 +38,7 @@ textarea {
   ;
 }
 
-.col-md-4{
+.hours{
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
