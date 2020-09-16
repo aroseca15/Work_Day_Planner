@@ -11,7 +11,7 @@ console.log(todaysDate.toLocaleString('default', {month:'long'})+" "+todaysDate.
 
 $('#currentDay').text(todaysDate.toLocaleString('default', {month:'long'})+" "+todaysDate.getDate()+", "+todaysDate.getUTCFullYear());
 $('#currentTime').text(todaysDate.toLocaleString('en-US', {hour: 'numeric',minute:'numeric', hour12: true}))
-
+let currentHour = todaysDate.toLocaleString('en-US', {hour: 'numeric',minute:'numeric', hour12: true}).split(':')
 
 const container = $('.container');
 // Making each row repeatable   
@@ -19,6 +19,9 @@ const container = $('.container');
 let times = ['5:00am', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm','3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', '9:00pm'];
 let time;
 let index = 0;
+let timeNum = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+
+
 while (index < times.length) {
 
     let time = times[index];
@@ -44,14 +47,28 @@ while (index < times.length) {
     container.append(newRow);
     index++;
 }
+// Local Storage function below:
 
 // I am super close. But not quite there!!
 $('.save-btn').on('click', function(){
-    let value = $(this).siblings('.textarea').val();
-    let time = $(this).parent().attr('date-time');
-    localStorage.setItem(time, value);
-    localStorage.getItem(time, value);
+    let value = $(this).parent().siblings('.textarea').children('textarea').val();
+    let time = $(this).attr('date-time');
+    localStorage.setItem(time, value); 
 })
+
+$('textarea').each(function(index){
+    let retrieve = $(this).attr('id');
+    let savedInput = localStorage.getItem(retrieve);
+    $(this).val(savedInput);
+})
+
+
+
+
+console.log($('textarea'))
+
+
+
 
 
 // // For below see if there is a way to set your past, cuurent, future as:
