@@ -1,27 +1,24 @@
-// let currentDay;
-
-// const today = Date.parse(new Date());
-// currentDay = today;
-// console.log(today);
-
+// Date and Time at the top of the page. Inside Jumbotron.
 const todaysDate = new Date();
-//console.log(todaysDate.getMonth()+" "+todaysDate.getDate()+ " "+todaysDate.getFullYear())
-console.log(todaysDate.toLocaleString('default', {month:'long'})+" "+todaysDate.getDate()+","+todaysDate.getUTCFullYear())
-// console.log(todaysDate.toLocaleString('default', {month:'long'}))
-
 $('#currentDay').text(todaysDate.toLocaleString('default', {month:'long'})+" "+todaysDate.getDate()+", "+todaysDate.getUTCFullYear());
 $('#currentTime').text(todaysDate.toLocaleString('en-US', {hour: 'numeric',minute:'numeric', hour12: true}))
-let currentHour = todaysDate.toLocaleString('en-US', {hour: 'numeric',minute:'numeric', hour12: true}).split(':')
 
-const container = $('.container');
-// Making each row repeatable   
+// I think this can work for what we need in moment. Of course, I am open to a clean version without making massive changes to me code already.
+let currentHour = moment().hour();
+console.log(currentHour)
+
+
+
+
+
+const container = $('.container');   
 
 let times = ['5:00am', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm','3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', '9:00pm'];
 let time;
 let index = 0;
 let timeNum = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 
-
+// Makes each new row according to times.
 while (index < times.length) {
 
     let time = times[index];
