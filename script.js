@@ -58,15 +58,16 @@ $('textarea').each(function(index){
     let retrieve = $(this).attr('id');
     let savedInput = localStorage.getItem(retrieve);
     $(this).val(savedInput);
+    if (currentHour > timeNum[index]) {
+        $(this).addClass('past');
+    } else if (currentHour < timeNum[index]) {
+        $(this).addClass('future')
+    } else {
+        $(this).addClass('present');
+    }
 })
 
-if (currentHour > timeNum[index]) {
-    $(this).addClass('past');
-} else if (currentHour < timeNum[index]) {
-    $(this).addClass('future')
-} else {
-    $(this).addClass('present');
-}
+
 
 
 console.log($('textarea'))
