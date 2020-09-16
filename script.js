@@ -4,7 +4,8 @@ $('#currentDay').text(todaysDate.toLocaleString('default', {month:'long'})+" "+t
 $('#currentTime').text(todaysDate.toLocaleString('en-US', {hour: 'numeric',minute:'numeric', hour12: true}))
 
 // I think this can work for what we need in moment. Of course, I am open to a clean version without making massive changes to me code already.
-let currentHour = moment().hour();
+// let currentHour = moment().hour();
+let currentHour = moment().format('HH');
 console.log(currentHour)
 
 
@@ -59,7 +60,13 @@ $('textarea').each(function(index){
     $(this).val(savedInput);
 })
 
-
+if (currentHour > timeNum[index]) {
+    $(this).addClass('past');
+} else if (currentHour < timeNum[index]) {
+    $(this).addClass('future')
+} else {
+    $(this).addClass('present');
+}
 
 
 console.log($('textarea'))
