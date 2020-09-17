@@ -1,4 +1,4 @@
-
+/*Changed the color to have a contrast with the rows.  */
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -31,7 +31,7 @@ textarea {
   text-align: center;
   border-radius: 15px;
 }
-
+/* Changed the color and added some padding to the top for a more even look between the top row and the jumbotron. */
 .row {
   white-space: pre-wrap;
   height: 80px;
@@ -46,7 +46,7 @@ textarea {
   color: #000000;
   border-top: 1px dashed #000000;
 }
-
+/* Below I changed font color to black since the white was harder to see. Also, made the font blod. */
 .past {
   background-color: #d3d3d3;
   color: black;

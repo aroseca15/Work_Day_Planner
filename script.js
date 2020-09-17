@@ -1,20 +1,14 @@
 // Date and Time at the top of the page. Inside Jumbotron.
 const todaysDate = new Date();
-$('#currentDay').text(todaysDate.toLocaleString('default', {month:'long'})+" "+todaysDate.getDate()+", "+todaysDate.getUTCFullYear());
-$('#currentTime').text(todaysDate.toLocaleString('en-US', {hour: 'numeric',minute:'numeric', hour12: true}))
+$('#currentDay').text(todaysDate.toLocaleString('default', { month: 'long' }) + " " + todaysDate.getDate() + ", " + todaysDate.getUTCFullYear());
+$('#currentTime').text(todaysDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }))
 
-// I think this can work for what we need in moment. Of course, I am open to a clean version without making massive changes to me code already.
-// let currentHour = moment().hour();
+// Var to help with CSS later.
 let currentHour = moment().format('HH');
-console.log(currentHour)
 
-
-
-
-
-const container = $('.container');   
-
-let times = ['5:00am', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm','3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', '9:00pm'];
+// Arrays and vars for both HTML add ons and CSS.
+const container = $('.container');
+let times = ['5:00am', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', '9:00pm'];
 let time;
 let index = 0;
 let timeNum = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
@@ -35,7 +29,7 @@ while (index < times.length) {
     textArea.attr('id', time);
     textAreaCell.append(textArea);
     newRow.append(textAreaCell);
-    
+
     let saveBtnCell = $('<div>').addClass('col-2');
     let saveBtn = $('<button>').addClass('save-btn');
     saveBtn.attr('date-time', time);
@@ -45,16 +39,15 @@ while (index < times.length) {
     container.append(newRow);
     index++;
 }
-// Local Storage function below:
-
-// I am super close. But not quite there!!
-$('.save-btn').on('click', function(){
+// Local Storage save function below:
+$('.save-btn').on('click', function () {
     let value = $(this).parent().siblings('.textarea').children('textarea').val();
     let time = $(this).attr('date-time');
-    localStorage.setItem(time, value); 
+    localStorage.setItem(time, value);
 })
 
-$('textarea').each(function(index){
+// Local Storage Retrieve and CSS function with if statement:
+$('textarea').each(function (index) {
     let retrieve = $(this).attr('id');
     let savedInput = localStorage.getItem(retrieve);
     $(this).val(savedInput);
@@ -70,10 +63,12 @@ $('textarea').each(function(index){
 
 
 
-console.log($('textarea'))
 
 
 
+
+
+// Below are ideas that I would like to keep:
 
 
 // // For below see if there is a way to set your past, cuurent, future as:
