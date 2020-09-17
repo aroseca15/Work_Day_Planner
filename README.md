@@ -1,6 +1,11 @@
 # Work_Day_Planner
 I have constructed an app that will save and store the input a client types into the middle text box next to the time slot. It also uses references to keep track of current date and time once refreshed.
 
+Deployment Link: https://aroseca15.github.io/Work_Day_Planner/
+
+Instuctor and Grader Sidenote: gif demos of each HW will be added later in the course.
+
+
 Jumbotron Date and Current Time:
     Inside of the Jumbotron I chose to use todaysDate.toLocaleString() method to retrieve the date. I was also looking for a specific format but felt many of the .format() methods required more lines of code that I felt was needed. So inside of my todaysDate.toLocaleString() I tried to use 'default', { month: 'long' }. I used the same approach for the current time. With some guidance from a TA, I chose to use        moment().format('HH'); in a variable called "currentHour". This would later be the variable I would use in an 'if else' statement to compare the hour time slots to the current hour for CSS purposes.
 
